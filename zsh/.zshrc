@@ -11,6 +11,8 @@ SAVEHIST=1000
 # Path to your Oh My Zsh installation.
 export ZSH="/usr/share/oh-my-zsh"
 
+export EDITOR=nvim
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME

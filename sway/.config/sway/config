@@ -3,8 +3,8 @@
 ### MONITORS ###
 # Output configuration
 output eDP-1 resolution 1920x1200 position 0 0
-# output 'AOC G2460PG' resolution 1920x1080@143.98Hz position -1920 0
-# output 'Acer Technologies V223PW LN80C0044013' resolution 1680x1050 position -3840 0
+output 'AOC G2460PG #ASPrfPN4lODd' resolution 1920x1080@143.98Hz position -1920 0
+output 'Acer Technologies V223PW LN80C0044013' resolution 1680x1050 position -3600 0
 # output 'Dell Inc. DELL U2724DE J734934' resolution 2560x1440@120Hz position 1920 0
 # output 'Seiko Epson Corporation EPSON PJ 0x01010101' resolution 1920x1080 position 4480 0
 # output * resolution 1920x1080
@@ -23,15 +23,25 @@ exec swaync
 exec hypridle
 exec hyprpaper
 exec nm-applet --indicator
-exec_always kanshi
+# exec_always kanshi
 
-exec_always ./scripts/lid_switch.sh
+### SCRIPTS ###
+exec_always ~/.config/sway/scripts/lid_switch.sh
 exec_always $autotiling
 
 ### ENVIRONMENT VARIABLES ###
-exec XCURSOR_SIZE=24
-exec HYPRCURSOR_SIZE=24
+# exec XCURSOR_SIZE=24
+# exec HYPRCURSOR_SIZE=24
+exec_always QT_QPA_PLATFORM=wayland
+exec_always QT_QPA_PLATFORM=xcb megasync
+
 exec XDG_DATA_DIRS=$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share
+
+# need for file picker under some gtk apps
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+exec XDG_CURRENT_DESKTOP=sway
+exec XDG_SESSION_TYPE=wayland
 
 ### LOOK AND FEEL ###
 # Gaps and borders
@@ -50,6 +60,7 @@ input type:keyboard {
 }
 
 input type:touchpad {
+    tap enabled
     natural_scroll enabled
 }
 
@@ -76,7 +87,7 @@ bindsym $mod+space exec $menu
 bindsym $mod+b exec $browser
 bindsym $mod+p layout toggle split
 bindsym $mod+g fullscreen toggle
-bindsym $mod+Shift+l exec hyprlock
+bindsym $mod+Shift+z exec hyprlock
 
 bindsym $mod+Shift+r reload
 
@@ -109,6 +120,10 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
+
+# Move workspace to differt screen
+bindsym $mod+Shift+h move workspace to output left; workspace output left
+bindsym $mod+Shift+l move workspace to output right; workspace output right
 
 # Scratchpad
 bindsym $mod+s scratchpad show

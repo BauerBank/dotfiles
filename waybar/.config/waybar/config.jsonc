@@ -49,9 +49,9 @@
     "tooltip-format": "{time}"
   },
   "network": {
-    "interval": 5,
+    "interval": 2,
     "format-wifi": " {bandwidthUpBytes}   {bandwidthDownBytes}  ",
-    "format-ethernet": " {bandwidthUpBytes}   {bandwidthDownBytes}  ",
+    "format-ethernet": " {bandwidthUpBytes}   {bandwidthDownBytes}  ",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "",
     "tooltip-format-wifi": "Signal Strenght: {signalStrength}%",
@@ -90,10 +90,12 @@
     "max-length": 20
   },
   "memory": {
+    "interval": 10,
     "format": "  {percentage}%",
     "on-click": "ghostty -e htop"
   },
   "cpu": {
+    "interval": 2,
     "format": "{usage}%  ",
     "on-click": "ghostty -e htop"
   },
