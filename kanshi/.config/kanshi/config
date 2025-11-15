@@ -1,33 +1,49 @@
 profile {
-	  output $INTERNAL enable
-    output $ANKER1 enable
-    output $ANKER2 enable
+    output "Lenovo Group Limited 0x403A Unknown" {
+        mode 1920x1200@60.00
+        position 0,0
+        scale 1
+    }
 }
 
 profile {
-	  output $INTERNAL enable
+    output "Lenovo Group Limited 0x403A Unknown" {
+        mode 1920x1200@60.00
+        position 3600,0
+        scale 1
+    }
+    output "AOC G2460PG #ASPrfPN4lODd" {
+        mode 1920x1080@143.98
+        position 1680,0
+        scale 1
+    }
+    output "Acer Technologies V223PW LN80C0044013" {
+        mode 1680x1050@59.95
+        position 0,0
+        scale 1
+    }
+}
+
+profile {
+    output "Lenovo Group Limited 0x403A Unknown" {
+        mode 1920x1200@60.00
+        position 0,0
+        scale 1
+    }
 	  output $BEAMER enable
 }
 
-output "California Institute of Technology 0x1413 Unknown" {
-    mode 1920x1200@60.00
-    position 0,0
-    scale 1
-    alias $INTERNAL
-}
-
-output "AOC G2460PG #ASPrfPN4lODd" {
-    mode 1920x1080@143.98
-    position -1920,0
-    scale 1
-    alias $ANKER1
-}
-
-output "Acer Technologies V223PW LN80C0044013" {
-    mode 1680x1050@59.95
-    position -3600,0
-    scale 1
-    alias $ANKER2
+profile {
+    output "Lenovo Group Limited 0x403A Unknown" {
+        mode 1920x1200@60.00
+        position 0,0
+        scale 1
+    }
+    output "AOC G2460PG #ASPrfPN4lODd" {
+        mode 1920x1080@143.98
+        position 1920,0
+        scale 1
+    }
 }
 
 output "Seiko Epson Corporation EPSON PJ 0x01010101" {

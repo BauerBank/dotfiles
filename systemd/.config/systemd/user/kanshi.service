@@ -1,0 +1,12 @@
+[Unit]
+Description=Dynamic output configuration for Sway (kanshi)
+Documentation=https://sr.ht/~emersion/kanshi/
+BindsTo=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/kanshi
+
+[Install]
+WantedBy=graphical-session.target

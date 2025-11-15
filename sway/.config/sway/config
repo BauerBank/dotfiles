@@ -2,11 +2,12 @@
 
 ### MONITORS ###
 # Output configuration
-output eDP-1 resolution 1920x1200 position 0 0
-output 'AOC G2460PG #ASPrfPN4lODd' resolution 1920x1080@143.98Hz position -1920 0
-output 'Acer Technologies V223PW LN80C0044013' resolution 1680x1050 position -3600 0
+# output eDP-1 resolution 1920x1200 position 0 0
+# output 'AOC G2460PG #ASPrfPN4lODd' resolution 1920x1080@143.98Hz position 1920 0
+# output 'AOC G2460PG #ASPrfPN4lODd' resolution 1920x1080@143.98Hz position -1920 0
+# output 'Acer Technologies V223PW LN80C0044013' resolution 1680x1050 position -3600 0
 # output 'Dell Inc. DELL U2724DE J734934' resolution 2560x1440@120Hz position 1920 0
-# output 'Seiko Epson Corporation EPSON PJ 0x01010101' resolution 1920x1080 position 4480 0
+# output 'Seiko Epson Corporation EPSON PJ 0x01010101' resolution 1920x1200 position 1920 0
 # output * resolution 1920x1080
 
 ### MY PROGRAMS ###
@@ -23,11 +24,15 @@ exec swaync
 exec hypridle
 exec hyprpaper
 exec nm-applet --indicator
+# exec /usr/lib/deja-dup/deja-dup-monitor
 # exec_always kanshi
 
 ### SCRIPTS ###
 exec_always ~/.config/sway/scripts/lid_switch.sh
 exec_always $autotiling
+
+# Start polkit authentication agent
+exec_always /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 ### ENVIRONMENT VARIABLES ###
 # exec XCURSOR_SIZE=24
