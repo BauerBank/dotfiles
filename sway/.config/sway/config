@@ -1,14 +1,15 @@
 # Sway config generated from Hyprland config
 
 ### MONITORS ###
-# Output configuration
+# Output configuration Examples Monitors are done by kanshi
 # output eDP-1 resolution 1920x1200 position 0 0
 # output 'AOC G2460PG #ASPrfPN4lODd' resolution 1920x1080@143.98Hz position 1920 0
-# output 'AOC G2460PG #ASPrfPN4lODd' resolution 1920x1080@143.98Hz position -1920 0
-# output 'Acer Technologies V223PW LN80C0044013' resolution 1680x1050 position -3600 0
-# output 'Dell Inc. DELL U2724DE J734934' resolution 2560x1440@120Hz position 1920 0
-# output 'Seiko Epson Corporation EPSON PJ 0x01010101' resolution 1920x1200 position 1920 0
 # output * resolution 1920x1080
+
+### Workspaces ###
+workspace 1 output eDP-1
+workspace 2 output 'Acer Technologies V223PW LN80C0044013'
+workspace 3 output 'AOC G2460PG #ASPrfPN4lODd'
 
 ### MY PROGRAMS ###
 set $terminal ghostty
@@ -16,16 +17,15 @@ set $fileManager ghostty -e yazi
 set $menu fuzzel
 set $browser firefox
 set $mailProgram thunderbird
-
 set $autotiling pgrep autotiling || autotiling
+
 ### AUTOSTART ###
 exec waybar
 exec swaync
 exec hypridle
 exec hyprpaper
 exec nm-applet --indicator
-# exec /usr/lib/deja-dup/deja-dup-monitor
-# exec_always kanshi
+exec_always kanshi
 
 ### SCRIPTS ###
 exec_always ~/.config/sway/scripts/lid_switch.sh
