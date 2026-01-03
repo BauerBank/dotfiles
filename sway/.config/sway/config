@@ -10,6 +10,7 @@
 workspace 1 output eDP-1
 workspace 2 output 'Acer Technologies V223PW LN80C0044013'
 workspace 3 output 'AOC G2460PG #ASPrfPN4lODd'
+workspace 2 output DP-2
 
 ### MY PROGRAMS ###
 set $terminal ghostty
@@ -23,9 +24,10 @@ set $autotiling pgrep autotiling || autotiling
 exec waybar
 exec swaync
 exec hypridle
-exec hyprpaper
+# exec hyprpaper
 exec nm-applet --indicator
 exec_always kanshi
+exec_always swaybg -i ~/.config/backgrounds/spiderman.JPG -m fill
 
 ### SCRIPTS ###
 exec_always ~/.config/sway/scripts/lid_switch.sh

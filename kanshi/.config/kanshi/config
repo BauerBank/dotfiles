@@ -9,17 +9,17 @@ profile {
 profile {
     output "Lenovo Group Limited 0x403A Unknown" {
         mode 1920x1200@60.00
-        position 3600,0
+        position 1920,0
         scale 1
     }
     output "AOC G2460PG #ASPrfPN4lODd" {
         mode 1920x1080@143.98
-        position 1680,0
+        position 0,0
         scale 1
     }
     output "Acer Technologies V223PW LN80C0044013" {
         mode 1680x1050@59.95
-        position 0,0
+        position -1680,0
         scale 1
     }
 }
@@ -41,6 +41,19 @@ profile {
     }
     output "AOC G2460PG #ASPrfPN4lODd" {
         mode 1920x1080@143.98
+        position 1920,0
+        scale 1
+    }
+}
+
+profile {
+    output "Lenovo Group Limited 0x403A Unknown" {
+        mode 1920x1200@60.00
+        position 0,0
+        scale 1
+    }
+    output "Dell Inc. DELL U2724DE J734934" {
+        mode 2560x1440@120.00
         position 1920,0
         scale 1
     }
