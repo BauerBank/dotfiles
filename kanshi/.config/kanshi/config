@@ -36,12 +36,12 @@ profile {
 profile {
     output "Lenovo Group Limited 0x403A Unknown" {
         mode 1920x1200@60.00
-        position 0,0
+        position 1920,0
         scale 1
     }
     output "AOC G2460PG #ASPrfPN4lODd" {
         mode 1920x1080@143.98
-        position 1920,0
+        position 0,0
         scale 1
     }
 }
