@@ -96,6 +96,11 @@ bindsym $mod+p layout toggle split
 bindsym $mod+g fullscreen toggle
 bindsym $mod+Shift+z exec hyprlock
 
+# screenshot
+bindsym XF86SelectiveScreenshot exec sway-screenshot -m window
+bindsym $mod+XF86SelectiveScreenshot exec sway-screenshot -m region
+bindsym $mod+Shift+XF86SelectiveScreenshot exec sway-screenshot -m output
+
 bindsym $mod+Shift+r reload
 
 # Focus movement (vim keys)
