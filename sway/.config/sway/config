@@ -14,7 +14,8 @@ workspace 2 output DP-2
 
 ### MY PROGRAMS ###
 set $terminal ghostty
-set $fileManager ghostty -e yazi
+# set $fileManager ghostty -e yazi
+set $fileManager nautilus
 set $menu fuzzel
 set $browser firefox
 set $mailProgram thunderbird
