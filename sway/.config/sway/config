@@ -30,7 +30,7 @@ exec nm-applet --indicator
 exec_always kanshi
 # exec_always swaybg -i ~/.config/backgrounds/spiderman.JPG -m fill
 # exec_always swaybg -i ~/.config/backgrounds/frog.png -m stretch
-exec_always swaybg -i ~/.config/backgrounds/frogNO.png -m stretch
+exec_always swaybg -i ~/.config/backgrounds/frogNO.png -m fill
 
 ### SCRIPTS ###
 exec_always ~/.config/sway/scripts/lid_switch.sh
