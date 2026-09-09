@@ -1,67 +1,73 @@
-profile {
-    output "Lenovo Group Limited 0x403A Unknown" {
-        mode 1920x1200@60.00
-        position 0,0
-        scale 1
-    }
+# ---- global defaults: everything except position ----
+output "Lenovo Group Limited 0x403A Unknown" {
+    mode 1920x1200@60.00
+    scale 1
+    alias $LAPTOP-PRIVATE
 }
 
-profile {
-    output "Lenovo Group Limited 0x403A Unknown" {
-        mode 1920x1200@60.00
-        position 1920,0
-        scale 1
-    }
-    output "AOC G2460PG #ASPrfPN4lODd" {
-        mode 1920x1080@143.98
-        position 0,0
-        scale 1
-    }
-    output "Acer Technologies V223PW LN80C0044013" {
-        mode 1680x1050@59.95
-        position -1680,0
-        scale 1
-    }
+output "Samsung Display Corp. 0x4208 Unknown" {
+    mode 1920x1200@60.003
+    scale 1
+    alias $LAPTOP-WORK
 }
 
-profile {
-    output "Lenovo Group Limited 0x403A Unknown" {
-        mode 1920x1200@60.00
-        position 0,0
-        scale 1
-    }
-	  output $BEAMER enable
+output "AOC G2460PG #ASPrfPN4lODd" {
+    mode 1920x1080@143.98
+    scale 1
+    alias $AOC
 }
 
-profile {
-    output "Lenovo Group Limited 0x403A Unknown" {
-        mode 1920x1200@60.00
-        position 1920,0
-        scale 1
-    }
-    output "AOC G2460PG #ASPrfPN4lODd" {
-        mode 1920x1080@143.98
-        position 0,0
-        scale 1
-    }
+output "Acer Technologies V223PW LN80C0044013" {
+    mode 1680x1050@59.95
+    scale 1
+    alias $ACER
 }
 
-profile {
-    output "Lenovo Group Limited 0x403A Unknown" {
-        mode 1920x1200@60.00
-        position 0,0
-        scale 1
-    }
-    output "Dell Inc. DELL U2724DE J734934" {
-        mode 2560x1440@120.00
-        position 1920,0
-        scale 1
-    }
+output "Dell Inc. DELL U2724DE J734934" {
+    mode 2560x1440@120.00
+    scale 1
+    alias $DELL
 }
 
 output "Seiko Epson Corporation EPSON PJ 0x01010101" {
     mode 1920x1080
-    position 1920,0
     scale 1
     alias $BEAMER
+}
+
+output "Dell Inc. DELL U3425WE 2ZTH3Z3" {
+    mode 3440x1440@120.000
+    scale 1
+    alias $DELL-WORK1
+}
+
+# ---- profiles: only positions ----
+profile mobile {
+    output $LAPTOP-PRIVATE position 0,0
+}
+
+profile desk-triple {
+    output $ACER position -1680,0
+    output $AOC position 0,0
+    output $LAPTOP-PRIVATE position 1920,0
+}
+
+profile desk-dual {
+    output $AOC position 0,0
+    output $LAPTOP-PRIVATE position 1920,0
+}
+
+profile beamer {
+    output $LAPTOP-PRIVATE position 0,0
+    output $BEAMER position 1920,0
+}
+
+profile dell {
+    output $LAPTOP-PRIVATE position 0,0
+    output $DELL position 1920,0
+}
+
+profile work1 {
+    output $LAPTOP-WORK position 0,0
+    output $DELL-WORK1 position 1920,0
 }
