@@ -113,7 +113,3 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 eval "$(starship init zsh)"
-
-
-# Added by Qwen Code standalone installer
-export PATH="/home/luca/.local/bin:$PATH"

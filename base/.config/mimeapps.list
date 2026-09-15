@@ -1,8 +1,8 @@
 [Default Applications]
-x-scheme-handler/mailto=userapp-Thunderbird-NSD452.desktop
-message/rfc822=userapp-Thunderbird-NSD452.desktop
-x-scheme-handler/mid=userapp-Thunderbird-NSD452.desktop
+x-scheme-handler/mailto=thunderbird.desktop
+message/rfc822=thunderbird.desktop
+x-scheme-handler/mid=thunderbird.desktop
 
 [Added Associations]
-x-scheme-handler/mailto=userapp-Thunderbird-NSD452.desktop;
-x-scheme-handler/mid=userapp-Thunderbird-NSD452.desktop;
+x-scheme-handler/mailto=thunderbird.desktop;
+x-scheme-handler/mid=thunderbird.desktop;

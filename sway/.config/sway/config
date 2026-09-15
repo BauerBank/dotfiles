@@ -1,16 +1,11 @@
 # Sway config generated from Hyprland config
 
 ### MONITORS ###
-# Output configuration Examples Monitors are done by kanshi
-# output eDP-1 resolution 1920x1200 position 0 0
-# output 'AOC G2460PG #ASPrfPN4lODd' resolution 1920x1080@143.98Hz position 1920 0
-# output * resolution 1920x1080
+# These are handled by kanshi
 
 ### Workspaces ###
+# Workspace 1 stays on the internal laptop panel.
 workspace 1 output eDP-1
-workspace 2 output 'Acer Technologies V223PW LN80C0044013'
-workspace 3 output 'AOC G2460PG #ASPrfPN4lODd'
-workspace 2 output DP-2
 
 ### MY PROGRAMS ###
 set $terminal ghostty
@@ -22,36 +17,38 @@ set $mailProgram thunderbird
 set $autotiling pgrep autotiling || autotiling
 
 ### AUTOSTART ###
-exec waybar
-exec swaync
-exec hypridle
+exec_always pgrep waybar >/dev/null || waybar
+exec_always pgrep swaync >/dev/null || swaync
+exec_always pgrep hypridle >/dev/null || hypridle
+exec_always pgrep nm-applet >/dev/null || nm-applet --indicator
+exec_always pgrep kanshi >/dev/null || kanshi
+exec_always $autotiling
+
+### Backround ###
 # exec hyprpaper
-exec nm-applet --indicator
-exec_always kanshi
 # exec_always swaybg -i ~/.config/backgrounds/spiderman.JPG -m fill
 # exec_always swaybg -i ~/.config/backgrounds/frog.png -m stretch
-exec_always swaybg -i ~/.config/backgrounds/frogNO.png -m fill
+exec_always pgrep swaybg >/dev/null || swaybg -i ~/.config/backgrounds/frogNO.png -m fill
 
 ### SCRIPTS ###
 exec_always ~/.config/sway/scripts/lid_switch.sh
-exec_always $autotiling
 
 # Start polkit authentication agent
-exec_always /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+exec_always pgrep -f polkit-gnome-authentication-agent-1 >/dev/null || /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 ### ENVIRONMENT VARIABLES ###
-# exec XCURSOR_SIZE=24
-# exec HYPRCURSOR_SIZE=24
-exec_always QT_QPA_PLATFORM=wayland
-exec_always QT_QPA_PLATFORM=xcb megasync
-
-exec XDG_DATA_DIRS=$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share
-
-# need for file picker under some gtk apps
-exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
-exec XDG_CURRENT_DESKTOP=sway
-exec XDG_SESSION_TYPE=wayland
+# Push the Wayland session identifiers into the D-Bus and systemd user
+# activation environments, so D-Bus-/systemd-activated services (portals,
+# notification daemons, etc.) can detect the compositor. Sway does not set
+# XDG_CURRENT_DESKTOP itself, so it is assigned inline below.
+# Session-wide toolkit vars (QT_QPA_PLATFORM, GDK_BACKEND, ...) live in
+# ~/.config/environment.d/sway.conf so they also reach apps launched directly
+# by sway.
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway XDG_SESSION_TYPE=wayland
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP XDG_SESSION_TYPE
+# When sway is launched from a tty (not via a systemd session), also push sway's
+# whole environment into the systemd user manager so its services see it:
+exec systemctl --user import-environment
 
 ### LOOK AND FEEL ###
 # Gaps and borders
@@ -76,11 +73,6 @@ input type:touchpad {
 
 input * {
     pointer_accel 0
-}
-
-# Example per-device config
-input "epic-mouse-v1" {
-    pointer_accel -0.5
 }
 
 ### KEYBINDINGS ###
