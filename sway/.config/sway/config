@@ -14,27 +14,26 @@ set $fileManager nautilus
 set $menu fuzzel
 set $browser firefox
 set $mailProgram thunderbird
-set $autotiling pgrep autotiling || autotiling
 
 ### AUTOSTART ###
-exec_always pgrep waybar >/dev/null || waybar
-exec_always pgrep swaync >/dev/null || swaync
-exec_always pgrep hypridle >/dev/null || hypridle
-exec_always pgrep nm-applet >/dev/null || nm-applet --indicator
-exec_always pgrep kanshi >/dev/null || kanshi
-exec_always $autotiling
+exec_always --no-startup-id killall -q waybar; waybar
+exec_always --no-startup-id killall -q swaync; swaync
+exec_always --no-startup-id killall -q hypridle; hypridle
+exec_always --no-startup-id killall -q nm-applet; nm-applet --indicator
+exec_always --no-startup-id killall -q kanshi; kanshi
+exec_always --no-startup-id killall -q autotiling; autotiling
 
 ### Backround ###
 # exec hyprpaper
 # exec_always swaybg -i ~/.config/backgrounds/spiderman.JPG -m fill
 # exec_always swaybg -i ~/.config/backgrounds/frog.png -m stretch
-exec_always pgrep swaybg >/dev/null || swaybg -i ~/.config/backgrounds/frogNO.png -m fill
+exec_always --no-startup-id killall -q swaybg; swaybg -i ~/.config/backgrounds/frogNO.png -m fill
 
 ### SCRIPTS ###
 exec_always ~/.config/sway/scripts/lid_switch.sh
 
 # Start polkit authentication agent
-exec_always pgrep -f polkit-gnome-authentication-agent-1 >/dev/null || /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+exec_always --no-startup-id killall -q polkit-gnome-authentication-agent-1; /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 ### ENVIRONMENT VARIABLES ###
 # Push the Wayland session identifiers into the D-Bus and systemd user
