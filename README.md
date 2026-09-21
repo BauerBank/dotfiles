@@ -1,6 +1,6 @@
-[!NOTE]
-**This repository has moved to [Codeberg](https://codeberg.org/BauerBank/dotfiles).**
-This copy is archived and no longer updated.
+> [!NOTE]
+> **This repository has moved to [Codeberg](https://codeberg.org/BauerBank/dotfiles).**
+> This copy is archived and no longer updated.
 
 # dotfiles
 
