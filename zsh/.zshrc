@@ -12,6 +12,7 @@ SAVEHIST=1000
 export ZSH="/usr/share/oh-my-zsh"
 
 export EDITOR=nvim
+export BROWSER=firefox
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
